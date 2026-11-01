@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DEV3 AI Smart Coupons &amp; Dynamic Discounts — Documentation</title>
+<style>
+	:root { --ink:#111827; --muted:#4b5563; --line:#e5e7eb; --brand:#4f46e5; --soft:#eef2ff; --warn:#fef3c7; --bg:#ffffff; --code:#f3f4f6; }
+	@media (prefers-color-scheme: dark) { :root { --ink:#e5e7eb; --muted:#9ca3af; --line:#374151; --brand:#a5b4fc; --soft:#1e1b4b; --warn:#3b2f0b; --bg:#0b1020; --code:#1f2937; } }
+	* { box-sizing: border-box; }
+	body { margin:0; font:16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color:var(--ink); background:var(--bg); }
+	.layout { display:grid; grid-template-columns:250px 1fr; max-width:1200px; margin:0 auto; }
+	nav { position:sticky; top:0; height:100vh; overflow:auto; padding:32px 20px; border-right:1px solid var(--line); font-size:14px; }
+	nav a { display:block; color:var(--muted); text-decoration:none; padding:4px 0; }
+	nav a:hover { color:var(--brand); }
+	nav strong { display:block; margin:16px 0 4px; font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink); }
+	main { padding:40px 48px 80px; min-width:0; }
+	h1 { font-size:32px; margin:0 0 6px; } h2 { font-size:22px; margin:48px 0 10px; padding-top:8px; border-top:1px solid var(--line); } h3 { font-size:17px; margin:24px 0 6px; }
+	p, li { color:var(--ink); } .lead { color:var(--muted); font-size:18px; }
+	code, kbd { background:var(--code); padding:1px 6px; border-radius:4px; font-size:.9em; }
+	pre { background:var(--code); padding:14px 16px; border-radius:8px; overflow:auto; font-size:13px; }
+	.tip { background:var(--soft); border-left:4px solid var(--brand); padding:12px 16px; border-radius:6px; margin:16px 0; }
+	.warn { background:var(--warn); border-left:4px solid #d97706; padding:12px 16px; border-radius:6px; margin:16px 0; }
+	table { border-collapse:collapse; width:100%; font-size:14px; } th, td { text-align:left; border-bottom:1px solid var(--line); padding:8px 10px; vertical-align:top; }
+	td.num, th.num { text-align:right; white-space:nowrap; }
+	.flow { display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:10px; margin:16px 0; }
+	.flow div { border:1px solid var(--line); border-radius:8px; padding:10px 12px; font-size:14px; }
+	.flow b { display:block; color:var(--brand); font-size:12px; text-transform:uppercase; letter-spacing:.05em; }
+	@media (max-width: 820px) { .layout { grid-template-columns:1fr; } nav { position:static; height:auto; border-right:0; border-bottom:1px solid var(--line); } main { padding:24px 16px 60px; } table { display:block; overflow-x:auto; } }
+</style>
+</head>
+<body>
+<div class="layout">
+<nav aria-label="Contents">
+	<strong>Getting started</strong>
+	<a href="#install">Installation</a>
+	<a href="#quick-start">Quick start (5 minutes)</a>
+	<a href="#api-key">API key setup</a>
+	<a href="#how">How it works</a>
+	<strong>Settings</strong>
+	<a href="#rules">Rules (safety)</a>
+	<a href="#margin">Margin protection</a>
+	<a href="#risk">Risk score</a>
+	<a href="#triggers">Triggers &amp; consent</a>
+	<a href="#banner">Banner design</a>
+	<a href="#flash">Flash sales</a>
+	<a href="#analytics">Analytics</a>
+	<strong>Details</strong>
+	<a href="#coupons">Generated coupons</a>
+	<a href="#checkout">Block &amp; classic checkout</a>
+	<a href="#caching">Caching &amp; performance</a>
+	<a href="#cleanup">Background jobs</a>
+	<strong>More</strong>
+	<a href="#updates">Updates</a>
+	<a href="#troubleshooting">Troubleshooting</a>
+	<a href="#faq">FAQ</a>
+	<a href="#developers">Developers</a>
+	<a href="#privacy">Privacy</a>
+	<a href="#changelog">Changelog</a>
+</nav>
+<main>
+<h1>DEV3 AI Smart Coupons &amp; Dynamic Discounts</h1>
+<p class="lead">Detect shoppers about to abandon their cart and show them a personal, single-use offer with a countdown. AI picks the offer, and it always stays within your margin rules. Version 1.0.0 · by DEV3 Technologies.</p>
+
+<h2 id="install">Installation</h2>
+<ol>
+	<li>Make sure <strong>WooCommerce</strong> (7.6 or newer) is installed and active. The plugin shows a notice and stays idle without it.</li>
+	<li>In your Envato download, find <code>dev3-ai-smart-coupons-for-woocommerce.zip</code>. This is the installable plugin; do not upload the whole bundle.</li>
+	<li>Go to <em>Plugins → Add New → Upload Plugin</em>, choose the zip, click <em>Install Now</em>, then <em>Activate</em>.</li>
+	<li>A new <strong>DEV3 AI Smart Coupons</strong> menu appears in the admin sidebar.</li>
+</ol>
+<p>Requirements: WordPress 6.0+, PHP 7.4–8.3 with the OpenSSL extension, and WooCommerce 7.6+ (tested with 11.2, HPOS and Cart &amp; Checkout blocks). AI offers also need outbound HTTPS to <code>generativelanguage.googleapis.com</code>.</p>
+
+<h2 id="quick-start">Quick start (5 minutes)</h2>
+<ol>
+	<li><strong>Rules.</strong> Set the maximum percentage (for example 15%) and maximum fixed amount, your minimum spend and a daily discount budget. Enter the <em>cost meta key</em> your cost plugin uses (for example <code>_wc_cog_cost</code>) and a minimum margin.</li>
+	<li><strong>Simulator</strong> (bottom of Rules). Try a shopper, such as a $120 cart with exit intent, and see the risk score, why it scored that way, and the offer they would get.</li>
+	<li><strong>Banner design.</strong> Pick bottom bar, top bar, corner card or modal, choose your colours and watch the live preview.</li>
+	<li><strong>API Config</strong> (optional). Add your API key so the AI can choose the incentive and write the copy. Without a key, offers are rules-based.</li>
+	<li>Open your store in a private window, add a product to the cart, then move the pointer to the top edge of the window. Your offer appears.</li>
+</ol>
+<div class="tip">An offer only appears when the cart's risk score reaches your threshold (default 55). If you test with a small cart and no exit intent, nothing may appear. That is the rules working. Use the simulator to see the score.</div>
+
+<h2 id="api-key">API key setup</h2>
+<p>The AI features are powered by the Google Gemini API using your own key.</p>
+<ol>
+	<li>Open <a href="https://aistudio.google.com/app/apikey">Google AI Studio → API keys</a> and sign in with a Google account.</li>
+	<li>Click <em>Create API key</em> and copy it. It starts with <code>AIza</code>.</li>
+	<li>In WordPress, go to <em>DEV3 AI Smart Coupons → API Config</em>, paste the key and click <strong>Validate &amp; save</strong>. You should see "Connected — N models available".</li>
+</ol>
+<div class="tip">The key is encrypted in your database (AES-256-GCM, bound to your site's salts) and is never sent to the browser. Agencies can put it in <code>wp-config.php</code> instead:<pre>define( 'DEV3SC_GEMINI_API_KEY', 'AIza...' );</pre></div>
+<p>The recommended model is <code>gemini-2.5-flash</code>, which answers in about 2–4 seconds. Each offer uses roughly 1–2k tokens. The free tier is fine for testing. Busy stores should enable billing on the key's Google Cloud project.</p>
+
+<h2 id="how">How it works</h2>
+<div class="flow">
+	<div><b>1 · Watch</b>A tiny script (about 4.5 KB gzipped, no jQuery) watches for exit intent, idle time and tab switches while the cart has items.</div>
+	<div><b>2 · Score</b>When a trigger fires, the server computes a 0–100 abandonment risk score from the cart and the shopper's history.</div>
+	<div><b>3 · Decide</b>Above your threshold, the AI proposes an incentive and copy from anonymous cart context.</div>
+	<div><b>4 · Clamp</b>Your rules clamp every field: caps, margin floor, exclusions, budget and time window. If the AI fails, a rules-based offer is used.</div>
+	<div><b>5 · Coupon</b>A unique, single-use WooCommerce coupon is created. It expires with the countdown.</div>
+	<div><b>6 · Show</b>A banner shows the offer with a countdown and a one-click "Apply" button.</div>
+</div>
+<p>Each shopper gets at most <strong>one offer per day</strong>, checked by session, email and (optionally) IP. If they reload or move to checkout, they see the same offer again. A new one is never generated.</p>
+
+<h2 id="rules">Rules (safety)</h2>
+<table>
+	<tr><th>Setting</th><th>What it does</th><th>Default</th></tr>
+	<tr><td>Incentive types</td><td>Which incentives may be offered: percentage off, fixed amount off the cart, free shipping.</td><td>All three</td></tr>
+	<tr><td>Min / max percentage</td><td>Range for percentage offers. AI suggestions outside the range are clamped.</td><td>5–15%</td></tr>
+	<tr><td>Min / max fixed</td><td>Range for fixed offers. Fixed amounts are also capped at the maximum percentage of the discountable cart.</td><td>2–20</td></tr>
+	<tr><td>Minimum spend</td><td>No offer below this cart subtotal. Also set as the coupon's minimum spend.</td><td>30</td></tr>
+	<tr><td>Daily discount budget</td><td>Total estimated discount value that may be issued per day (0 = unlimited). Offers are scaled down to fit what is left. Resets at midnight (site time).</td><td>250</td></tr>
+	<tr><td>Offer window</td><td>Min and max minutes an offer stays valid (the countdown).</td><td>10–30 min</td></tr>
+	<tr><td>Excluded products / categories</td><td>Never discounted. Variations of an excluded product are excluded too.</td><td>—</td></tr>
+	<tr><td>Exclude sale items</td><td>Products already on sale are never discounted further.</td><td>On</td></tr>
+	<tr><td>Individual use only</td><td>The coupon cannot be combined with other coupons.</td><td>On</td></tr>
+	<tr><td>One offer per IP per day</td><td>Adds IP to the session and email checks. Turn off if many shoppers share one network.</td><td>On</td></tr>
+	<tr><td>Coupon code prefix</td><td>Codes look like <code>SAVE-K7M2Q9XA</code>.</td><td>SAVE</td></tr>
+	<tr><td>Delete expired unused coupons after</td><td>Retention in days before expired, never-used generated coupons are deleted.</td><td>3 days</td></tr>
+	<tr><td>Risk threshold</td><td>The minimum risk score for an offer. Higher means fewer, better-targeted offers.</td><td>55</td></tr>
+	<tr><td>If the AI is off or fails</td><td>Make a rules-based offer (scaled by risk between your min and max) or make no offer.</td><td>Rules-based</td></tr>
+</table>
+<div class="warn"><strong>The AI never has the last word.</strong> Its answer is treated as untrusted input. The type must be allowed; the amount, time window and budget are clamped; and copy that contains digits, prices, percentages, links, codes or markup is replaced by your template. The template always shows the real deal. A model that "promises" 50% off can never reach a shopper whose real offer is 10%.</div>
+
+<h2 id="margin">Margin protection</h2>
+<p>Set <em>Cost meta key</em> to the product meta field that holds the unit cost:</p>
+<table>
+	<tr><th>Cost plugin</th><th>Meta key</th></tr>
+	<tr><td>WooCommerce Cost of Goods (SkyVerge / Woo)</td><td><code>_wc_cog_cost</code></td></tr>
+	<tr><td>Cost of Goods for WooCommerce (WPFactory)</td><td><code>_alg_wc_cog_cost</code></td></tr>
+	<tr><td>ATUM Inventory</td><td><code>_purchase_price</code></td></tr>
+	<tr><td>Anything else</td><td>Your own key, or the <code>dev3sc_product_cost</code> filter</td></tr>
+</table>
+<p>For each cart line the plugin works out the <em>room</em>: <code>line total − cost × quantity × (1 + minimum margin)</code>. The tightest line decides the largest discount ratio, because WooCommerce spreads percentage and fixed-cart discounts across lines in proportion to their price.</p>
+<h3>Worked example (minimum margin 15%)</h3>
+<table>
+	<tr><th>Line</th><th class="num">Price</th><th class="num">Cost</th><th class="num">Floor (cost × 1.15)</th><th class="num">Room</th><th class="num">Max discount</th></tr>
+	<tr><td>Hoodie</td><td class="num">60.00</td><td class="num">24.00</td><td class="num">27.60</td><td class="num">32.40</td><td class="num">54%</td></tr>
+	<tr><td>Sneakers</td><td class="num">120.00</td><td class="num">70.00</td><td class="num">80.50</td><td class="num">39.50</td><td class="num">32%</td></tr>
+	<tr><td>Backpack</td><td class="num">80.00</td><td class="num">72.00</td><td class="num">82.80</td><td class="num">−2.80</td><td class="num">excluded</td></tr>
+</table>
+<p>The backpack has no room, so it is left out of the coupon: its ID goes into the coupon's excluded products. The coupon is limited to the hoodie and sneakers, and the offer can be at most 32% (then capped by your maximum percentage). The offer is also never more than your remaining daily budget. If the result is below your minimum, the next allowed type is tried, or no offer is made.</p>
+<p><em>Products without a cost</em> can be either discounted (your caps still apply) or never discounted.</p>
+
+<h2 id="risk">Risk score</h2>
+<p>The score is a transparent, deterministic sum of points, clamped to 0–100. The same inputs always give the same score, and the simulator lists every factor.</p>
+<table>
+	<tr><th>Signal</th><th class="num">Points</th></tr>
+	<tr><td>Exit intent (desktop pointer leaves through the top)</td><td class="num">+30</td></tr>
+	<tr><td>Fast scroll up (mobile)</td><td class="num">+24</td></tr>
+	<tr><td>Switched away from the tab (mobile)</td><td class="num">+18</td></tr>
+	<tr><td>Idle time: 0 up to 10 s, then linear up to 120 s</td><td class="num">0 to +25</td></tr>
+	<tr><td>Cart ≥ 2× your average order / ≥ 1.25× / close to it / below it</td><td class="num">+20 / +12 / +6 / +2</td></tr>
+	<tr><td>First-time visitor / returning visitor</td><td class="num">+10 / +4</td></tr>
+	<tr><td>No previous orders / 1–2 orders / 3+ orders (logged-in)</td><td class="num">+10 / −5 / −15</td></tr>
+	<tr><td>Ordered in the last 30 days / no order for 6+ months</td><td class="num">−10 / +6</td></tr>
+	<tr><td>Viewed the cart twice / 3+ times this visit</td><td class="num">+5 / +10</td></tr>
+	<tr><td>Leaving from the checkout page</td><td class="num">+5</td></tr>
+</table>
+<p>The average order value is calculated from paid orders in the last 90 days and cached for 12 hours. Developers can change any weight with the <code>dev3sc_risk_weights</code> filter.</p>
+
+<h2 id="triggers">Triggers &amp; consent</h2>
+<ul>
+	<li><strong>Exit intent (desktop):</strong> the pointer leaves through the top edge of the window, towards the tabs or the address bar.</li>
+	<li><strong>Exit signals (mobile):</strong> a fast upward scroll (140 px within 350 ms, after scrolling at least 300 px down), or switching to another tab or app.</li>
+	<li><strong>Idle time:</strong> no mouse, touch, scroll or key activity for the chosen number of seconds (default 30).</li>
+	<li><strong>Minimum time on page:</strong> nothing fires during the first few seconds (default 4).</li>
+	<li><strong>Run the tracker on:</strong> all pages, store pages only, or cart and checkout only.</li>
+</ul>
+<p>The script reads WooCommerce's <code>woocommerce_items_in_cart</code> cookie and only reacts while the cart has items. It sends a request <strong>only when a trigger fires</strong>, and each trigger type fires at most once per page view.</p>
+<h3>Consent</h3>
+<ul>
+	<li><strong>Respect Do Not Track / Global Privacy Control</strong> (on by default): the tracker does not run for these visitors.</li>
+	<li><strong>Require a consent cookie:</strong> enter the cookie name, or <code>name=text</code> that the value must contain. For example <code>cookieyes-consent=analytics:yes</code> or <code>cmplz_marketing=allow</code>.</li>
+	<li>Consent tools can also set <code>window.dev3scConsent = true</code> (allow) or <code>false</code> (block) before the script loads.</li>
+</ul>
+
+<h2 id="banner">Banner design</h2>
+<ul>
+	<li><strong>Floating style:</strong> bottom bar, top bar, corner card or modal. Floating banners are <code>position: fixed</code>, so they never push the page around (no layout shift).</li>
+	<li><strong>Inline on cart / checkout:</strong> the active offer is printed at the top of the cart and checkout in the page's HTML, so it adds no layout shift either. When the coupon is applied, the banner shows "Discount applied".</li>
+	<li><strong>Countdown:</strong> counts to the coupon's real expiry time on the server, even if the shopper's clock is wrong.</li>
+	<li><strong>Colours and radius</strong> with a contrast check (aim for at least 4.5:1).</li>
+	<li><strong>Copy templates</strong> for rules-based offers, with the placeholders <code>{discount}</code> (for example "10% off", "$5 off", "free shipping") and <code>{minutes}</code>.</li>
+	<li><strong>Brand voice</strong> is passed to the AI, for example "Warm, playful, never pushy".</li>
+</ul>
+<p>Accessibility: banners are labelled regions; the modal is a proper dialog with focus moved to the button, a focus trap and <kbd>Esc</kbd> to close; new offers are announced to screen readers once; all buttons are at least 44 px high; reduced-motion preferences are respected. Shoppers can dismiss a floating banner, and it stays dismissed for the browsing session.</p>
+
+<h2 id="flash">Flash sales</h2>
+<p>Flash sales are merchant-scheduled urgency bars shown to every visitor between a start and an end time, with a live countdown. Add one under <em>DEV3 AI Smart Coupons → Flash sales</em>:</p>
+<ol>
+	<li>Set the start and end time (in your site's time zone).</li>
+	<li>Describe the sale, for example "25% off all hoodies this weekend, code COZY25", pick a tone and click <strong>Generate copy with DEV3 AI</strong>. Edit the headline, message and button text as you like.</li>
+	<li>Optionally show a coupon code you created in WooCommerce, and link the button to a page on your site.</li>
+	<li>Choose top or bottom, and all pages, store pages or cart and checkout only.</li>
+</ol>
+<p>The space for a top or bottom bar is reserved in the page's first paint, so the bar never covers your header. Flash sales do not track anyone and do not need consent. A flash sale does not create coupons; create the coupon itself under <em>Marketing → Coupons</em>.</p>
+
+<h2 id="analytics">Analytics</h2>
+<table>
+	<tr><th>Metric</th><th>Meaning</th></tr>
+	<tr><td>Offers shown</td><td>Offers created and shown to a shopper.</td></tr>
+	<tr><td>Applied</td><td>The coupon was added to the cart (one-click or typed).</td></tr>
+	<tr><td>Redeemed in orders</td><td>An order using the coupon reached Processing, On hold or Completed.</td></tr>
+	<tr><td>Conversion</td><td>Redeemed ÷ shown.</td></tr>
+	<tr><td>Revenue from offered carts</td><td>Order totals of redeemed orders.</td></tr>
+	<tr><td>Total discount cost</td><td>The discount actually given in those orders. For free shipping, the shipping cost estimate.</td></tr>
+</table>
+<p>The analytics page also breaks results down by incentive type and by trigger, shows a daily chart (with a table view), and lists recent offers with their risk score, source (AI or rules), status and a link to the order.</p>
+
+<h2 id="coupons">Generated coupons</h2>
+<ul>
+	<li>Normal WooCommerce coupons (<em>Marketing → Coupons</em>), marked as generated by the plugin.</li>
+	<li>Usage limit 1, limit per user 1, and an expiry date equal to the countdown.</li>
+	<li>Limited to the products whose margin was checked. The minimum spend is your rule; for fixed amounts it is the cart value at offer time.</li>
+	<li>Restricted to the customer's email when known (logged in, or entered at checkout).</li>
+	<li>Bound to the shopping session they were issued to. A shared or leaked code shows "This personal offer belongs to another shopping session".</li>
+	<li>Free-shipping offers need a <em>Free shipping</em> method that requires <em>A valid free shipping coupon</em> (or "either"/"both") in your shipping zones. Without one, free shipping is never offered.</li>
+</ul>
+
+<h2 id="checkout">Block &amp; classic checkout</h2>
+<p>Both are supported. On the Cart and Checkout blocks, "Apply" uses the WooCommerce Store API, so the totals update instantly. On classic <code>[woocommerce_cart]</code> / <code>[woocommerce_checkout]</code> pages, and on any other page, "Apply" follows a secure one-click link (<code>?dev3sc_apply=CODE&amp;dev3sc_token=…</code>). The token is bound to the shopper's session, applies the coupon and returns to the same page.</p>
+
+<h2 id="caching">Caching &amp; performance</h2>
+<ul>
+	<li>Works with full-page caches (WP Rocket, LiteSpeed, Cloudflare APO and others). Cached pages contain only public settings and flash sales. A shopper's own offer comes from a REST request when a trigger fires, and is printed inline only on cart and checkout, which are never cached.</li>
+	<li>The tracker endpoint <code>/wp-json/dev3sc/v1/track</code> accepts same-origin requests only, is rate-limited per IP (12 per minute) and validates every field. No nonce is needed, so cached pages work.</li>
+	<li>At most one AI call per shopping session per 15 minutes, only when every rule already allows an offer. AI calls time out after 20 seconds and fall back to the rules.</li>
+</ul>
+
+<h2 id="cleanup">Background jobs</h2>
+<p>The plugin uses Action Scheduler, which comes with WooCommerce (<em>Tools → Scheduled Actions</em>, group <code>ai-smart-coupons</code>):</p>
+<ul>
+	<li><code>dev3sc_sweep</code> (hourly): marks expired offers and deletes generated coupons that expired more than <em>N</em> days ago and were never used. Used coupons are kept for your records.</li>
+	<li><code>dev3sc_budget_reset</code> (daily at midnight, site time): resets the daily discount budget.</li>
+</ul>
+
+<h2 id="updates">Updates</h2>
+<p>No licence key or activation is needed: every feature works as soon as the plugin is active. To update, download the latest version from your Envato <em>Downloads</em> page, then go to <em>Plugins → Add New → Upload Plugin</em> and upload the zip. WordPress offers to replace the installed version and keeps all your settings and data.</p>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+<table>
+	<tr><th>Symptom</th><th>Fix</th></tr>
+	<tr><td>No offer appears</td><td>Check that the cart reaches the minimum spend and the risk score reaches the threshold (use the simulator). Also check that you have not already had an offer today (try a private window), that the daily budget is not used up, and that "Smart offers enabled" is on under Triggers. With Do Not Track or a consent rule, the tracker does not run.</td></tr>
+	<tr><td>Offers are always rules-based</td><td>Add or validate your API key under API Config, and check that "Let AI choose the incentive" is on. See Usage Logs for errors.</td></tr>
+	<tr><td>Free shipping is never offered</td><td>Add a Free shipping method that requires a coupon to your shipping zones.</td></tr>
+	<tr><td>A product is never discounted</td><td>It may have no margin room, be on sale or excluded, or have no cost while "Never discount them" is selected.</td></tr>
+	<tr><td>"This personal offer belongs to another shopping session"</td><td>The code was issued to a different visitor. Codes are personal.</td></tr>
+	<tr><td>"Usage limit for coupon … has been reached"</td><td>The code has already been used in an order. Codes are single use.</td></tr>
+	<tr><td>API key not valid / quota exhausted</td><td>Create a new key in AI Studio, or enable billing on the key's Google Cloud project.</td></tr>
+	<tr><td>Expired coupons are piling up</td><td>Check that WP-Cron / Action Scheduler runs (<em>Tools → Scheduled Actions</em>). Lower the retention.</td></tr>
+</table>
+
+<h2 id="faq">FAQ</h2>
+<h3>Will this train shoppers to wait for discounts?</h3>
+<p>Offers are rare by design: at most one per shopper per day, only above your risk threshold, and loyal recent customers score lower. Raise the threshold or lower the caps to be stricter, or allow only free shipping.</p>
+<h3>Does it slow my store down?</h3>
+<p>No. The storefront script is about 4.5 KB gzipped, loads in the footer, and makes no requests until a trigger fires.</p>
+<h3>Is it multisite / multi-currency compatible?</h3>
+<p>It works per site on multisite. Amounts are in your store's base currency.</p>
+
+<h2 id="developers">Developers</h2>
+<table>
+	<tr><th>Hook</th><th>Purpose</th></tr>
+	<tr><td><code>dev3sc_risk_weights</code></td><td>Change risk-score weights (array of points).</td></tr>
+	<tr><td><code>dev3sc_offer</code></td><td>Veto (return non-array) or adjust a clamped offer before the coupon is created. Stay within the rules.</td></tr>
+	<tr><td><code>dev3sc_product_cost</code></td><td>Provide a unit cost when the meta key is empty: <code>( $cost, $product )</code>.</td></tr>
+	<tr><td><code>dev3sc_fallback_aov</code></td><td>Average order value to use when the store has no recent orders (default 60).</td></tr>
+	<tr><td><code>dev3sc_bind_coupon_to_session</code></td><td>Return false to allow generated codes outside their session.</td></tr>
+	<tr><td><code>dev3sc_track_rate_limit</code>, <code>dev3sc_public_rate_limit</code></td><td>Tracker requests per minute per IP.</td></tr>
+	<tr><td><code>dev3sc_trusted_ip_header</code></td><td>Trust a proxy header (for example <code>HTTP_X_REAL_IP</code>) for the client IP.</td></tr>
+	<tr><td><code>dev3sc_storefront_ai_timeout</code></td><td>AI timeout in seconds for storefront offers (default 20).</td></tr>
+	<tr><td><code>dev3sc_storefront_config</code></td><td>Filter the public storefront config (never add private data).</td></tr>
+	<tr><td><code>dev3sc_request_body</code>, <code>dev3sc_request_timeout</code></td><td>Modify the raw AI request or its timeout.</td></tr>
+	<tr><td><code>dev3sc_capability</code>, <code>dev3sc_manage_capability</code></td><td>Capabilities (default <code>edit_posts</code> / <code>manage_options</code>).</td></tr>
+</table>
+<p>Coupons carry the meta <code>_dev3sc_generated</code>, <code>_dev3sc_session</code> (hash) and <code>_dev3sc_offer_id</code>. Orders that redeem an offer get <code>_dev3sc_offer_id</code> (HPOS-safe). The REST namespace is <code>dev3sc/v1</code>: public <code>track</code>; admin <code>analytics</code>, <code>flash-sales</code>, <code>flash-sales/copy</code>, <code>simulate</code>, <code>lookup</code>, <code>settings</code> and <code>usage</code>.</p>
+
+<h2 id="privacy">Privacy</h2>
+<p><strong>Sent to the Google Gemini API</strong> (only when a shopper qualifies for an offer, or when an admin uses an AI button): store currency, cart subtotal, item count, up to 8 product category names, your average order value, the risk score and its reasons, the trigger and page type, the customer segment (new or returning, number of previous orders), your limits and your brand-voice text. <strong>Never sent:</strong> names, emails, IP or street addresses, user IDs, product names or coupon codes.</p>
+<p><strong>Stored on your site:</strong> one row per offer in <code>wp_dev3sc_offers</code> (coupon, amounts, risk score, trigger, status, order). The session, email and IP are stored only as keyed one-way hashes, used to enforce one offer per day. In the shopper's browser, localStorage holds a first-visit timestamp, and sessionStorage holds a cart-view counter and the current offer. The plugin sets no cookies. Uninstalling with "Delete data on uninstall" removes the tables, settings and unused generated coupons.</p>
+<p>Suggested privacy-policy text: <em>"To offer timely discounts, our store analyses anonymous shopping-cart activity (cart value, time on page, whether you are leaving the page). When you qualify for an offer, anonymous cart information (no personal data) is processed by Google's Gemini API to choose the offer."</em></p>
+<p>tech. Google Gemini is a trademark of Google LLC; this plugin is not affiliated with or endorsed by Google.</p>
+
+<h2 id="changelog">Changelog</h2>
+<p><strong>1.0.0</strong> — Initial release.</p>
+</main>
+</div>
+</body>
+</html>

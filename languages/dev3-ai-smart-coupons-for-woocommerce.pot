@@ -1,0 +1,1514 @@
+# Copyright (C) 2026 DEV3 Technologies
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: DEV3 AI Smart Coupons & Dynamic Discounts for WooCommerce 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/dev3-ai-smart-coupons-for-woocommerce\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-10-23T17:39:21+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: dev3-ai-smart-coupons-for-woocommerce\n"
+
+#. Plugin Name of the plugin
+#: dev3-ai-smart-coupons-for-woocommerce.php
+msgid "DEV3 AI Smart Coupons & Dynamic Discounts for WooCommerce"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: dev3-ai-smart-coupons-for-woocommerce.php
+msgid "https://dev3.tech/item/dev3-ai-smart-coupons-for-woocommerce"
+msgstr ""
+
+#. Description of the plugin
+#: dev3-ai-smart-coupons-for-woocommerce.php
+msgid "AI cart-abandonment detection with personalised, margin-safe single-use coupons and countdown urgency banners for WooCommerce."
+msgstr ""
+
+#. Author of the plugin
+#: dev3-ai-smart-coupons-for-woocommerce.php
+msgid "DEV3 Technologies"
+msgstr ""
+
+#. Author URI of the plugin
+#: dev3-ai-smart-coupons-for-woocommerce.php
+msgid "https://dev3.tech"
+msgstr ""
+
+#: includes/Admin/Admin_Page.php:40
+msgid "DEV3 AI Smart Coupons"
+msgstr ""
+
+#: includes/Admin/Admin_Page.php:86
+msgid "Settings"
+msgstr ""
+
+#: includes/Core3/Api/Api_Error.php:49
+msgid "No Gemini API key is configured."
+msgstr ""
+
+#: includes/Core3/Api/Api_Error.php:50
+msgid "Open the plugin settings → API Config and paste a key from Google AI Studio."
+msgstr ""
+
+#: includes/Core3/Api/Api_Error.php:66
+msgid "The AI service took too long to respond."
+msgstr ""
+
+#: includes/Core3/Api/Api_Error.php:67
+msgid "Try again, shorten the prompt, lower Max Output Tokens, or switch to the faster model."
+msgstr ""
+
+#: includes/Core3/Api/Api_Error.php:75
+msgid "Your server could not reach the AI service (Google Gemini API)."
+msgstr ""
+
+#: includes/Core3/Api/Api_Error.php:76
+msgid "Check the server's internet connection or firewall (outbound HTTPS to generativelanguage.googleapis.com)."
+msgstr ""
+
+#. translators: %s: transport error message.
+#: includes/Core3/Api/Api_Error.php:84
+#, php-format
+msgid "Request to the AI service failed: %s"
+msgstr ""
+
+#: includes/Core3/Api/Api_Error.php:85
+#: includes/Core3/Api/Gemini_Client.php:180
+msgid "Try again in a moment."
+msgstr ""
+
+#: includes/Core3/Api/Api_Error.php:114
+msgid "The Gemini API key is not valid."
+msgstr ""
+
+#: includes/Core3/Api/Api_Error.php:115
+msgid "Create a new key in Google AI Studio and paste it in API Config."
+msgstr ""
+
+#: includes/Core3/Api/Api_Error.php:123
+msgid "Your Gemini quota is exhausted."
+msgstr ""
+
+#: includes/Core3/Api/Api_Error.php:123
+msgid "AI rate limit reached."
+msgstr ""
+
+#: includes/Core3/Api/Api_Error.php:125
+msgid "Wait for the quota to reset, enable billing on your Google Cloud project, or switch to a model with remaining quota."
+msgstr ""
+
+#: includes/Core3/Api/Api_Error.php:126
+msgid "Wait a few seconds and try again."
+msgstr ""
+
+#: includes/Core3/Api/Api_Error.php:134
+msgid "This API key is not allowed to use Gemini."
+msgstr ""
+
+#: includes/Core3/Api/Api_Error.php:135
+msgid "Enable the Generative Language API for the key's project, and check any key restrictions (HTTP referrer / IP)."
+msgstr ""
+
+#: includes/Core3/Api/Api_Error.php:142
+msgid "The selected Gemini model is not available."
+msgstr ""
+
+#: includes/Core3/Api/Api_Error.php:143
+msgid "Pick another model in API Config — click \"Refresh models\" to load the ones your key can use."
+msgstr ""
+
+#: includes/Core3/Api/Api_Error.php:150
+msgid "The AI service is not available in your server's region."
+msgstr ""
+
+#: includes/Core3/Api/Api_Error.php:151
+msgid "Host the site in a supported region or use a key from a supported project."
+msgstr ""
+
+#: includes/Core3/Api/Api_Error.php:158
+msgid "The AI service is temporarily unavailable."
+msgstr ""
+
+#: includes/Core3/Api/Api_Error.php:159
+msgid "This is on Google's side. Try again shortly or switch models."
+msgstr ""
+
+#: includes/Core3/Api/Api_Error.php:166
+msgid "The AI service rejected the request."
+msgstr ""
+
+#: includes/Core3/Api/Api_Error.php:167
+msgid "Adjust the prompt or settings and try again."
+msgstr ""
+
+#: includes/Core3/Api/Gemini_Client.php:179
+msgid "The AI returned malformed data."
+msgstr ""
+
+#: includes/Core3/Api/Gemini_Client.php:229
+msgid "The AI blocked this request for safety reasons."
+msgstr ""
+
+#: includes/Core3/Api/Gemini_Client.php:230
+#: includes/Core3/Api/Gemini_Client.php:259
+msgid "Rephrase the prompt and try again."
+msgstr ""
+
+#: includes/Core3/Api/Gemini_Client.php:258
+msgid "The AI stopped because the response was flagged."
+msgstr ""
+
+#: includes/Core3/Api/Gemini_Client.php:266
+msgid "The AI ran out of output tokens before writing an answer."
+msgstr ""
+
+#: includes/Core3/Api/Gemini_Client.php:267
+msgid "Increase Max Output Tokens in API Config, or set Reasoning to \"Low\"."
+msgstr ""
+
+#: includes/Core3/Api/Gemini_Client.php:274
+msgid "The AI returned an empty response."
+msgstr ""
+
+#: includes/Core3/Api/Gemini_Client.php:275
+msgid "Try again or rephrase the prompt."
+msgstr ""
+
+#: includes/Core3/Data/Usage_Repository.php:81
+msgid "Deleted user"
+msgstr ""
+
+#: includes/Core3/Rest/Base_Controller.php:72
+msgid "Your session has expired. Reload the editor and try again."
+msgstr ""
+
+#: includes/Core3/Rest/Base_Controller.php:75
+msgid "You do not have permission to do that."
+msgstr ""
+
+#: includes/Core3/Rest/Base_Controller.php:94
+msgid "Cross-origin requests are not allowed."
+msgstr ""
+
+#: includes/Core3/Rest/Base_Controller.php:104
+msgid "Too many requests. Please wait a moment."
+msgstr ""
+
+#: includes/Coupons/Coupon_Factory.php:58
+msgid "Generated by DEV3 AI Smart Coupons for one shopping session. Single use."
+msgstr ""
+
+#: includes/Coupons/Coupon_Hooks.php:61
+msgid "This personal offer belongs to another shopping session."
+msgstr ""
+
+#: includes/Engine/Copy.php:38
+msgid "free shipping"
+msgstr ""
+
+#. translators: %s: percentage
+#: includes/Engine/Copy.php:42
+#, php-format
+msgid "%s%% off"
+msgstr ""
+
+#. translators: %s: money amount
+#: includes/Engine/Copy.php:48
+#, php-format
+msgid "%s off"
+msgstr ""
+
+#: includes/Engine/Flash_Sales.php:129
+msgid "Describe the sale first."
+msgstr ""
+
+#: includes/Engine/Risk_Score.php:101
+msgid "Exit intent (pointer left the page)"
+msgstr ""
+
+#: includes/Engine/Risk_Score.php:103
+msgid "Exit intent (fast scroll up on mobile)"
+msgstr ""
+
+#: includes/Engine/Risk_Score.php:105
+msgid "Switched away from the tab"
+msgstr ""
+
+#. translators: %d: seconds
+#: includes/Engine/Risk_Score.php:114
+#, php-format
+msgid "Idle for %d seconds"
+msgstr ""
+
+#: includes/Engine/Risk_Score.php:121
+msgid "Cart is at least 2× your average order"
+msgstr ""
+
+#: includes/Engine/Risk_Score.php:123
+msgid "Cart is above your average order"
+msgstr ""
+
+#: includes/Engine/Risk_Score.php:125
+msgid "Cart is close to your average order"
+msgstr ""
+
+#: includes/Engine/Risk_Score.php:127
+msgid "Cart is below your average order"
+msgstr ""
+
+#: includes/Engine/Risk_Score.php:133
+#: build/admin.js:1
+msgid "Returning visitor"
+msgstr ""
+
+#: includes/Engine/Risk_Score.php:135
+msgid "First-time visitor"
+msgstr ""
+
+#: includes/Engine/Risk_Score.php:140
+msgid "No previous orders"
+msgstr ""
+
+#: includes/Engine/Risk_Score.php:142
+msgid "1–2 previous orders"
+msgstr ""
+
+#: includes/Engine/Risk_Score.php:144
+msgid "Loyal customer (3+ orders)"
+msgstr ""
+
+#: includes/Engine/Risk_Score.php:148
+msgid "Ordered in the last 30 days"
+msgstr ""
+
+#: includes/Engine/Risk_Score.php:150
+msgid "Lapsed customer (no order for 6+ months)"
+msgstr ""
+
+#. translators: %d: visits
+#: includes/Engine/Risk_Score.php:157
+#, php-format
+msgid "Viewed the cart %d times"
+msgstr ""
+
+#: includes/Engine/Risk_Score.php:159
+msgid "Viewed the cart twice"
+msgstr ""
+
+#: includes/Engine/Risk_Score.php:164
+msgid "On the checkout page"
+msgstr ""
+
+#: includes/Frontend/Storefront.php:221
+#: build/admin.js:1
+msgid "Offer ends in"
+msgstr ""
+
+#: includes/Frontend/Storefront.php:222
+#: build/admin.js:1
+msgid "Ends in"
+msgstr ""
+
+#: includes/Frontend/Storefront.php:223
+msgid "This offer has expired."
+msgstr ""
+
+#: includes/Frontend/Storefront.php:224
+#: build/admin.js:1
+msgid "Discount applied"
+msgstr ""
+
+#: includes/Frontend/Storefront.php:225
+msgid "Applying…"
+msgstr ""
+
+#: includes/Frontend/Storefront.php:226
+#: build/admin.js:1
+msgid "Dismiss offer"
+msgstr ""
+
+#: includes/Frontend/Storefront.php:227
+#: build/admin.js:1
+msgid "Close"
+msgstr ""
+
+#: includes/Frontend/Storefront.php:228
+#: build/admin.js:1
+msgid "Code"
+msgstr ""
+
+#: includes/Frontend/Storefront.php:229
+#: build/admin.js:1
+msgid "Personal offer"
+msgstr ""
+
+#: includes/Frontend/Storefront.php:230
+#: build/admin.js:1
+msgid "Flash sale"
+msgstr ""
+
+#: includes/Frontend/Storefront.php:231
+msgid "Could not apply the code. Please enter it at checkout."
+msgstr ""
+
+#: includes/Frontend/Storefront.php:232
+msgid "Copy code"
+msgstr ""
+
+#: includes/Frontend/Storefront.php:233
+msgid "Copied"
+msgstr ""
+
+#: includes/Frontend/Storefront.php:254
+msgid "That offer link has expired. Please use the code at checkout."
+msgstr ""
+
+#: includes/Plugin.php:113
+#: build/admin.js:1
+msgid "DEV3 AI Smart Coupons & Dynamic Discounts"
+msgstr ""
+
+#: includes/Plugin.php:114
+msgid "needs WooCommerce. Install and activate WooCommerce to start generating offers."
+msgstr ""
+
+#: includes/Rest/Admin_Controller.php:223
+msgid "Sample category"
+msgstr ""
+
+#: includes/Rest/Admin_Controller.php:249
+msgid "Add an API key in API Config first."
+msgstr ""
+
+#: includes/Rest/Tracker_Controller.php:89
+msgid "WooCommerce is not active."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Request cancelled."
+msgstr ""
+
+#: build/admin.js:1
+msgid "You appear to be offline."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Check your internet connection, then try again."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Could not reach your WordPress site."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Check your connection or reload the editor."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Your session has expired."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Save your work and reload the page."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Something went wrong."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Custom model ID…"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Choose from list"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Google Gemini API key"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Create a free key in Google AI Studio, paste it here and click “Validate & save”. The key is encrypted in your database and never sent to the browser."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Get an API key"
+msgstr ""
+
+#: build/admin.js:1
+msgid "The key is defined by the DEV3SC_GEMINI_API_KEY constant in wp-config.php."
+msgstr ""
+
+#: build/admin.js:1
+msgid "API key"
+msgstr ""
+
+#. translators: %d: number of models
+#: build/admin.js:1
+#, js-format
+msgid "Connected — %d models available to this key."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Validate & save"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Remove key"
+msgstr ""
+
+#: build/admin.js:1
+msgid "OpenSSL is not available on this server, so the key is only obfuscated. Consider defining DEV3SC_GEMINI_API_KEY in wp-config.php instead."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Models"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Fast is used for most editing tasks; Pro for complex, long-form or structured work."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Refresh models"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Fast model"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Recommended: gemini-2.5-flash"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Pro model"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Recommended: gemini-2.5-pro"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Generation parameters"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Temperature"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Lower = focused and consistent, higher = more creative."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Max output tokens"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Upper limit per answer."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Reasoning"
+msgstr ""
+
+#: build/admin.js:1
+msgid "“Low” keeps editor generations fast and cheap; “Auto” lets the model think longer."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Low (fast)"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Auto (model decides)"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Save engine settings"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Requests"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Tokens"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Usage could not be loaded."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Token counts come from the AI provider’s usage metadata. Check exact billing in Google AI Studio / Cloud Console."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Period"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Last 7 days"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Last 30 days"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Last 90 days"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Total tokens"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Input tokens"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Output tokens"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Avg. response time"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Errors"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Requests per day"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Requests per day chart"
+msgstr ""
+
+#. translators: 1: date, 2: requests, 3: tokens
+#: build/admin.js:1
+#, js-format
+msgid "%1$s — %2$s requests, %3$s tokens"
+msgstr ""
+
+#: build/admin.js:1
+msgid "No requests in this period yet."
+msgstr ""
+
+#: build/admin.js:1
+msgid "By task"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Task"
+msgstr ""
+
+#: build/admin.js:1
+msgid "By model"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Model"
+msgstr ""
+
+#: build/admin.js:1
+msgid "By user"
+msgstr ""
+
+#: build/admin.js:1
+msgid "User"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Recent requests"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Time"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Where"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Time (s)"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Status"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Newer"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Older"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Save changes"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Unsaved changes"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Percentage off"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Fixed amount off the cart"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Free shipping"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Risk & offer simulator"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Try a hypothetical shopper against your saved rules. Nothing is created — no coupon, no budget used."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Cart value"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Product cost (% of price)"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Idle seconds"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Previous orders"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Trigger"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Exit intent (desktop)"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Fast scroll up (mobile)"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Tab hidden (mobile)"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Idle"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Page"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Cart page views"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Score with rules only"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Ask AI for an offer"
+msgstr ""
+
+#. translators: 1: score, 2: threshold
+#: build/admin.js:1
+#, js-format
+msgid "Risk score %1$d / 100 (threshold %2$d)"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Below the threshold: a real shopper would not get an offer."
+msgstr ""
+
+#: build/admin.js:1
+msgid "AI offer (after safety rules)"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Rules-based offer"
+msgstr ""
+
+#. translators: 1: money, 2: minutes
+#: build/admin.js:1
+#, js-format
+msgid "Est. cost %1$s · expires in %2$d min"
+msgstr ""
+
+#. translators: 1: type, 2: amount
+#: build/admin.js:1
+#, js-format
+msgid "The model proposed %1$s %2$s."
+msgstr ""
+
+#: build/admin.js:1
+msgid "The safety rules adjusted it."
+msgstr ""
+
+#: build/admin.js:1
+msgid "No offer fits the rules for this cart."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Incentive types & caps"
+msgstr ""
+
+#: build/admin.js:1
+msgid "The AI only suggests; every offer is clamped to these limits on the server."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Free-shipping offers need a “Free shipping” method that requires “A valid free shipping coupon” in at least one shipping zone."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Shipping settings"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Min percentage"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Max percentage"
+msgstr ""
+
+#. translators: %s: currency
+#: build/admin.js:1
+#, js-format
+msgid "Min fixed (%s)"
+msgstr ""
+
+#. translators: %s: currency
+#: build/admin.js:1
+#, js-format
+msgid "Max fixed (%s)"
+msgstr ""
+
+#. translators: %s: currency
+#: build/admin.js:1
+#, js-format
+msgid "Minimum spend (%s)"
+msgstr ""
+
+#. translators: %s: currency
+#: build/admin.js:1
+#, js-format
+msgid "Daily discount budget (%s)"
+msgstr ""
+
+#: build/admin.js:1
+msgid "0 = unlimited. Resets at midnight."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Offer window min (minutes)"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Offer window max (minutes)"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Fixed discounts are also capped at the maximum percentage of the discountable cart."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Margin protection"
+msgstr ""
+
+#: build/admin.js:1
+msgid "A discount never pushes any product below its cost plus your minimum margin. Products with no room are left out of the coupon."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Cost meta key"
+msgstr ""
+
+#: build/admin.js:1
+msgid "e.g. _wc_cog_cost (Cost of Goods), _alg_wc_cog_cost, _purchase_price"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Minimum margin over cost"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Products without a cost"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Discount them (caps still apply)"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Never discount them"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Exclusions & coupon settings"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Excluded products"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Excluded categories"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Exclude sale items"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Individual use only"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Cannot be combined with other coupons."
+msgstr ""
+
+#: build/admin.js:1
+msgid "One offer per IP per day"
+msgstr ""
+
+#: build/admin.js:1
+msgid "In addition to one per session and email."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Coupon code prefix"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Delete expired unused coupons after (days)"
+msgstr ""
+
+#. translators: %s: currency
+#: build/admin.js:1
+#, js-format
+msgid "Free-shipping cost estimate (%s)"
+msgstr ""
+
+#: build/admin.js:1
+msgid "When to make an offer"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Risk threshold"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Only shoppers whose abandonment risk score reaches this value get an offer. Higher = fewer, more targeted offers."
+msgstr ""
+
+#: build/admin.js:1
+msgid "If the AI is off or fails"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Make a rules-based offer (scaled by risk)"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Make no offer"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Preferred rules-based type"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Shown"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Applied"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Redeemed"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Exit intent"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Fast scroll up"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Tab hidden"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Active"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Expired"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Offers per day: shown, applied and redeemed"
+msgstr ""
+
+#: build/admin.js:1
+msgid "No data yet."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Conv."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Revenue"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Discount"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Offers shown"
+msgstr ""
+
+#. translators: %s: percent
+#: build/admin.js:1
+#, js-format
+msgid "Applied (%s%%)"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Redeemed in orders"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Conversion (redeemed ÷ shown)"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Revenue from offered carts"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Total discount cost"
+msgstr ""
+
+#. translators: %d: days
+#: build/admin.js:1
+#, js-format
+msgid "Last %d days"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Refresh"
+msgstr ""
+
+#. translators: 1: spent, 2: limit
+#: build/admin.js:1
+#, js-format
+msgid "Today’s discount budget: %1$s of %2$s reserved"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Offers per day"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Show chart"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Show table"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Day"
+msgstr ""
+
+#: build/admin.js:1
+msgid "By incentive type"
+msgstr ""
+
+#: build/admin.js:1
+msgid "By trigger"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Recent offers"
+msgstr ""
+
+#: build/admin.js:1
+msgid "No offers yet. They appear here as soon as a shopper triggers one."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Created"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Offer"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Cart"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Risk"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Source"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Order"
+msgstr ""
+
+#: build/admin.js:1
+msgid "AI"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Rules"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Smart offers enabled"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Turn off to stop tracking and new offers immediately (flash sales keep running)."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Let AI choose the incentive and write the copy"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Off = rules-based offers only (no API calls from the storefront)."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Intent triggers"
+msgstr ""
+
+#: build/admin.js:1
+msgid "The storefront script watches for these signals while the cart has items. It sends one small request only when a trigger fires."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Pointer leaves through the top of the window."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Exit signals (mobile)"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Fast scroll up or switching away from the tab."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Idle time"
+msgstr ""
+
+#: build/admin.js:1
+msgid "No mouse, touch, scroll or key activity."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Idle after (seconds)"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Minimum time on page (seconds)"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Run the tracker on"
+msgstr ""
+
+#: build/admin.js:1
+msgid "All pages"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Shop, product, cart and checkout"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Cart and checkout only"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Privacy & consent"
+msgstr ""
+
+#: build/admin.js:1
+msgid "The tracker stores no personal data. You can still require consent before it runs."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Respect Do Not Track / Global Privacy Control"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Consent"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Not required"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Require a consent cookie"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Consent cookie"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Cookie name, or name=text that the value must contain (e.g. cookieyes-consent=analytics:yes). Your consent tool can also set window.dev3scConsent = true."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Live preview"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Text on background"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Button text on button"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Layout"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Offers that appear mid-visit float over the page (no layout shift). On cart and checkout the active offer is also printed inline."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Floating style"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Bottom bar"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Top bar"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Corner card"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Modal"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Inline on cart"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Inline on checkout"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Show countdown"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Colours"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Background"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Text"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Button"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Button text"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Corner radius"
+msgstr ""
+
+#. translators: 1: pair, 2: ratio
+#: build/admin.js:1
+#, js-format
+msgid "%1$s contrast is %2$s:1 — aim for at least 4.5:1 so everyone can read it."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Copy"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Used for rules-based offers and whenever AI copy is rejected. Placeholders: {discount}, {minutes}."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Headline"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Message"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Button label"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Brand voice for AI copy"
+msgstr ""
+
+#: build/admin.js:1
+msgid "e.g. “Warm, playful, never pushy. We say ‘friend’, not ‘customer’.”"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Exactly what shoppers see (sample code and offer)."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Shop the sale"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Your headline"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Edit flash sale"
+msgstr ""
+
+#: build/admin.js:1
+msgid "New flash sale"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Internal name"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Black Friday hoodies"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Enabled"
+msgstr ""
+
+#. translators: %s: timezone
+#: build/admin.js:1
+#, js-format
+msgid "Starts (%s)"
+msgstr ""
+
+#. translators: %s: timezone
+#: build/admin.js:1
+#, js-format
+msgid "Ends (%s)"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Describe the sale for the AI"
+msgstr ""
+
+#: build/admin.js:1
+msgid "25% off all hoodies and beanies this weekend, code COZY25"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Tone"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Generate copy with DEV3 AI"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Button link (this site)"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Coupon code to show (optional)"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Position"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Top"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Bottom"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Show on"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Store pages"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Cart & checkout"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Preview"
+msgstr ""
+
+#: build/admin.js:1
+msgid "The end must be after the start."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Save flash sale"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Delete"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Flash sales"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Scheduled, site-wide urgency bars with a live countdown. They show to every visitor between the start and end time."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Add flash sale"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Flash sales saved."
+msgstr ""
+
+#: build/admin.js:1
+msgid "No flash sales yet."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Sale"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Starts"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Ends"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Ended"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Scheduled"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Live"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Off"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Edit"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Analytics"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Triggers"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Banner design"
+msgstr ""
+
+#: build/admin.js:1
+msgid "API Config"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Usage Logs"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Sections"
+msgstr ""
+
+#: build/admin.js:1
+msgid "WooCommerce is not active. Activate it to generate offers."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Offers currently use your rules only. Add an API key to let AI pick the incentive and write the copy."
+msgstr ""
+
+#: build/admin.js:1
+msgid "Add API key"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Settings saved."
+msgstr ""
