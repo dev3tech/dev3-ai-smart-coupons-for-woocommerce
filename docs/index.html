@@ -280,7 +280,7 @@
 <p><strong>Sent to the Google Gemini API</strong> (only when a shopper qualifies for an offer, or when an admin uses an AI button): store currency, cart subtotal, item count, up to 8 product category names, your average order value, the risk score and its reasons, the trigger and page type, the customer segment (new or returning, number of previous orders), your limits and your brand-voice text. <strong>Never sent:</strong> names, emails, IP or street addresses, user IDs, product names or coupon codes.</p>
 <p><strong>Stored on your site:</strong> one row per offer in <code>wp_dev3sc_offers</code> (coupon, amounts, risk score, trigger, status, order). The session, email and IP are stored only as keyed one-way hashes, used to enforce one offer per day. In the shopper's browser, localStorage holds a first-visit timestamp, and sessionStorage holds a cart-view counter and the current offer. The plugin sets no cookies. Uninstalling with "Delete data on uninstall" removes the tables, settings and unused generated coupons.</p>
 <p>Suggested privacy-policy text: <em>"To offer timely discounts, our store analyses anonymous shopping-cart activity (cart value, time on page, whether you are leaving the page). When you qualify for an offer, anonymous cart information (no personal data) is processed by Google's Gemini API to choose the offer."</em></p>
-<p>tech. Google Gemini is a trademark of Google LLC; this plugin is not affiliated with or endorsed by Google.</p>
+<p>Google Gemini is a trademark of Google LLC; this plugin is not affiliated with or endorsed by Google.</p>
 
 <h2 id="changelog">Changelog</h2>
 <p><strong>1.0.0</strong> — Initial release.</p>
